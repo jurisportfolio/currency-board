@@ -4,8 +4,17 @@
   flex-direction: column;
   background-color: #282c34;
   min-height: 100vh;
+  min-width: 100vw;
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App header {
+  width: 100%
+}
+
+.App main {
+  width: 100%
 }

@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import cantorApp from './utilities/reducers';
+
+const store = createStore(cantorApp);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
