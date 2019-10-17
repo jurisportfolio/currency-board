@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-import ExchangeRateComponent from './ExchangeRateComponent';
+import ExRateComponent from './ExRateComponent';
 
 
-export default class DashboardComponent extends React.Component {
-  state = {
-    exchangeRate: 4.2789
-  }
+class DashboardComponent extends React.Component {
+  
 
   handelRateChange = (newRate) => {
-    this.setState({
-      exchangeRate: newRate
-    })
+
   }
 
   render() {
-    let { exchangeRate } = this.state;
+
+    const { exchangeRate } = this.props;
+    console.log('this.props: ', this.props);
+    console.log('exchangeRate: ', exchangeRate);
     return (
       <StyledDashboard>
-        <ExchangeRateComponent exchangeRate={exchangeRate} handelRateChange={this.handelRateChange} />
+        <ExRateComponent exchangeRate={exchangeRate} handelRateChange={this.handelRateChange} />
         
       </StyledDashboard>
     )
@@ -29,3 +29,13 @@ export default class DashboardComponent extends React.Component {
 const StyledDashboard = styled.div`
   
 `
+
+const mapStateToProps = state => {
+  console.log('state: ', state);
+
+  return {
+    exchangeRate: state.exchangeRateReducer.exchangeRate
+  }
+}
+
+export default connect(mapStateToProps)(DashboardComponent)

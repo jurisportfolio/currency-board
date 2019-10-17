@@ -10,12 +10,10 @@ const initialState = {
 function exchangeRateReducer(state = initialState, action) {
   switch (action.type) {
     case SET_RATE: 
-      return [
-        ...state,
-        {
-          rateValue: action.rateValue 
+      return {
+        exchangeRate: action.exchangeRate
         }
-      ]
+      
     default:
         return state  
   }
