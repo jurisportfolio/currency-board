@@ -6,13 +6,20 @@ import ExchangeRateComponent from './ExchangeRateComponent';
 
 export default class DashboardComponent extends React.Component {
   state = {
-    exchangeRate: 1
+    exchangeRate: 4.2789
   }
+
+  handelRateChange = (newRate) => {
+    this.setState({
+      exchangeRate: newRate
+    })
+  }
+
   render() {
-    const { exchangeRate } = this.state;
+    let { exchangeRate } = this.state;
     return (
       <StyledDashboard>
-        <ExchangeRateComponent exchangeRate={exchangeRate}/>
+        <ExchangeRateComponent exchangeRate={exchangeRate} handelRateChange={this.handelRateChange} />
         
       </StyledDashboard>
     )
