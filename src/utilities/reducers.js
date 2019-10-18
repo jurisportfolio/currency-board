@@ -2,10 +2,8 @@ import { combineReducers } from 'redux';
 import { SET_RATE, FETCH_RATE_SUCCESS } from './actions';
 
 const initialState = {
-  exRate: 4.2789
+  exRate: "0.0000"
 }
-
-
 
 function exRateReducer(state = initialState, action) {
   switch (action.type) {

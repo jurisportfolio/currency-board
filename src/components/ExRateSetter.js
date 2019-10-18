@@ -5,7 +5,7 @@ import { setRate } from '../utilities/actions';
 
 const ExRateSetter = ({ exRate, setRate }) => {
   let rateInput = React.createRef();
-
+  
   const handelSubmit = event => {
     event.preventDefault();
     const newRate = parseFloat(rateInput.current.value).toFixed(4);
@@ -17,7 +17,12 @@ const ExRateSetter = ({ exRate, setRate }) => {
     <form onSubmit={handelSubmit} > 
       <label>
         Rate:
-        <input type="text" name="name" defaultValue={exRate} ref={rateInput} />
+        <input 
+          type="text" 
+          name="name" 
+          defaultValue={exRate} 
+          ref={rateInput} 
+        />
       </label>
       <input type="submit" value="Set rate" />
     </form>
@@ -34,4 +39,6 @@ const propsForExRateSetter = state => {
 
 const dispatchForExRateSetter = { setRate };
 
-export default connect(propsForExRateSetter, dispatchForExRateSetter)(ExRateSetter);
+export default connect(
+                propsForExRateSetter, 
+                dispatchForExRateSetter)(ExRateSetter);

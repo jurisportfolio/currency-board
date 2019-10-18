@@ -36,7 +36,7 @@ export default class ExRateComponent extends React.Component {
         <ExRateSetter />
         
 
-        <div><label>GET</label></div>
+        <div><label>NBP</label></div>
       </StyledExRateComponent>
     )
   }
