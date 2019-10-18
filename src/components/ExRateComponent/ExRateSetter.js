@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setRate } from '../utilities/actions';
+import { setRate } from '../../utilities/actions';
 
 const ExRateSetter = ({ exRate, setRate }) => {
   let rateInput = React.createRef();

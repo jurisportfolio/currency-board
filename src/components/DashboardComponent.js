@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import ExRateComponent from './ExRateComponent';
+import ExRateComponent from './ExRateComponent/ExRateComponent';
 
 const StyledDashboard = styled.div`
   
