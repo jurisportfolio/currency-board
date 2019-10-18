@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import ExRateMonitor from './ExRateMonitor';
+import ExRateSetter from './ExRateSetter';
 
 const labelStyle = css`
   label {
@@ -27,30 +28,15 @@ export default class ExRateComponent extends React.Component {
       rateInputValue: event.target.value
     })
   }
-
-  handelSubmit = event => {
-    event.preventDefault();
-    const newRate = parseFloat(this.state.rateInputValue).toFixed(4);
-    this.props.handelRateChange(newRate);
-  }
-
+  
   render() {
-    
-    const {rateInputValue} = this.state;
     return (
       <StyledExRateComponent>
-        <ExRateMonitor 
-           />
+        <ExRateMonitor />
+        <ExRateSetter />
         
-      <form onSubmit={this.handelSubmit} > 
-        <label>
-          Rate:
-          <input type="text" name="name" value={rateInputValue} onChange={this.onChangeInputValue} />
-        </label>
-        <input type="submit" value="Set rate" />
-      </form>
 
-      <div><label>GET</label></div>
+        <div><label>GET</label></div>
       </StyledExRateComponent>
     )
   }
