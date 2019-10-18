@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import ExRateMonitor from './ExRateMonitor';
 import ExRateSetter from './ExRateSetter';
+import ExRateFetcher from './ExRateFetcher';
 
 const labelStyle = css`
   label {
@@ -34,9 +35,7 @@ export default class ExRateComponent extends React.Component {
       <StyledExRateComponent>
         <ExRateMonitor />
         <ExRateSetter />
-        
-
-        <div><label>NBP</label></div>
+        <ExRateFetcher />
       </StyledExRateComponent>
     )
   }

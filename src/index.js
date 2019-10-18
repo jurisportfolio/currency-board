@@ -8,7 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import cantorApp from './utilities/reducers';
 import thunk from 'redux-thunk';
 
-import { fetchRate } from './utilities/faetchRate';
+import { fetchRate } from './utilities/fetchRate';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
