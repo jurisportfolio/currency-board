@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ExRateMonitor = ({ exchangeRate }) => (
+const ExRateMonitor = ({ exRate }) => (
   <div>
     <label>1 EUR</label>
     <label>=</label>
-    <label>{exchangeRate} PLN</label>
+    <label>{exRate} PLN</label>
   </div>
 );
 
 const propsMapForExRateMonitor = state => {
   return {
-    exchangeRate: state.exchangeRateReducer.exchangeRate
+    exRate: state.exRateReducer.exRate
   }
 };
 
