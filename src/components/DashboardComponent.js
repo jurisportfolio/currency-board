@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import ExRateComponent from './ExRateComponent/ExRateComponent';
+import NewTransactionComponent from './NewTransactionComponent/NewTransactionComponent';
 
 const StyledDashboard = styled.div`
   
@@ -14,6 +15,7 @@ class DashboardComponent extends React.Component {
     return (
       <StyledDashboard>
         <ExRateComponent />
+        <NewTransactionComponent />
       </StyledDashboard>
     )
   }
