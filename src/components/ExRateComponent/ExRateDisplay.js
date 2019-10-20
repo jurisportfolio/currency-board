@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ExRateMonitor = ({ exRate }) => (
+const ExRateDisplay = ({ exRate }) => (
   <div>
     <label>1 EUR</label>
     <label>=</label>
@@ -9,12 +9,12 @@ const ExRateMonitor = ({ exRate }) => (
   </div>
 );
 
-const propsMapForExRateMonitor = state => {
+const propsMapForExRateDisplay = state => {
   return {
     exRate: state.exRateReducer.exRate
   }
 };
 
-export default connect(propsMapForExRateMonitor)(ExRateMonitor);
+export default connect(propsMapForExRateDisplay)(ExRateDisplay);
 
 

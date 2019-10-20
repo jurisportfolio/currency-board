@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import ExRateMonitor from './ExRateMonitor';
+import ExRateDisplay from './ExRateDisplay';
 import ExRateSetter from './ExRateSetter';
 import ExRateFetcher from './ExRateFetcher';
 
@@ -39,7 +39,7 @@ export default class ExRateComponent extends React.Component {
   render() {
     return (
       <StyledExRateComponent>
-        <ExRateMonitor />
+        <ExRateDisplay />
         <ExRateSetter />
         <ExRateFetcher />
       </StyledExRateComponent>

@@ -10,12 +10,6 @@ export const FETCH_RATE_FAILURE = 'FETCH_RATE_FAILURE';
 export const addTransaction = transaction => ({
   type: ADD_TRANSACTION,
   transaction
-  // [...state,
-  //   {
-  //     transactionName: transaction.transactionName,
-  //     transactionAmountPLN: transaction.transactionAmountPLN,
-  //     transactionAmountEUR: transaction.transactionAmountEUR
-  //   }]
 })
 
 export const setRate = exRate => ({
