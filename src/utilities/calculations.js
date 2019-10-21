@@ -1,13 +1,13 @@
-// const helpF = (element, id) => {
-// 	if (element.uid !== id) {
-// 		return element;
-// 	}
-// };
-
-// export const removeElementFromList = (list, uidToRemove) => {
-// 	return list.filter(element => helpF(element, uidToRemove));
-// };
-
-export const removeElementFromList = (list, uidToRemove) => {
-	return list.filter(element => (element.uid !== uidToRemove ? element : null));
+export const calcPLNinState = (transactions, exRate) => {
+	const newTransactionsList = transactions.map(transaction => {
+		const newAmountPLN = transaction.newAmountEUR * exRate;
+		return {
+			id: transaction.id,
+			name: transaction.name,
+			amountEUR: transaction.amountEUR,
+			amountPLN: newAmountPLN
+		};
+	});
+	console.log("newTransactionsList: ", newTransactionsList);
+	return newTransactionsList;
 };

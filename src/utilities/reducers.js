@@ -1,8 +1,7 @@
 import { combineReducers } from "redux";
-import { SET_RATE, FETCH_RATE_SUCCESS, REMOVE_TRANSACTION } from "./actions";
-import { ADD_TRANSACTION } from "./actions";
+import { SET_RATE, FETCH_RATE_SUCCESS } from "./actions";
+import { ADD_TRANSACTION, SET_NEW_AMOUNT, REMOVE_TRANSACTION } from "./actions";
 
-import { removeElementFromList } from "./calculations";
 import uiKey from "./uuidGenerator";
 
 const initialExRate = "0.0000";
@@ -40,6 +39,9 @@ function transactions(state = initialTransactions, action) {
 				transaction.uid !== action.uid ? transaction : null
 			);
 			return newState;
+		case SET_NEW_AMOUNT:
+			console.log("action: ", action);
+			return state;
 		default:
 			return state;
 	}

@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRate } from '../../utilities/fetchRate';
+import { fetchRate, setNewAmount } from '../../utilities/fetchRate';
+import { calcPLNinState } from '../../utilities/calculations';
 
 class ExRateFetcher extends React.Component {
   
   handelOnClick = () => {
     this.props.dispatch(fetchRate());
+    this.props.setNewAmount(this.props.)
   }
 
   render(){
@@ -21,6 +23,14 @@ class ExRateFetcher extends React.Component {
     )}
 }
 
-// const dispatchForExRateFetcher =  fetchRate();
+const propsForExRateFetcher = state => {
+  return {
+    transactions: state.transactions,
+    exRate: state.exRate
+  }
+  
+}
 
-export default connect()(ExRateFetcher);
+const dispatchForExRateFetcher =  setNewAmount();
+
+export default connect(propsForExRateFetcher, dispatchForExRateFetcher)(ExRateFetcher);
