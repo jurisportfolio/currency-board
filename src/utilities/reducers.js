@@ -2,20 +2,21 @@ import { combineReducers } from 'redux';
 import { SET_RATE, FETCH_RATE_SUCCESS } from './actions';
 import { ADD_TRANSACTION } from './actions';
 
+import uiKey from './uuidGenerator';
+
 const initialExRate = "0.0000";
 
-const initialTransactions = [{name: "first", amountPLN: "666", amountEUR: "777"}]
+const transactionUID = uiKey();
+const initialTransactions = [{id: transactionUID, name: "form reducer", amountPLN: "666", amountEUR: "777"}]
 
 function exRate(state = initialExRate, action) {
   switch (action.type) {
     case SET_RATE: 
-      return {
-        exRate: action.exRate
-        }
+      return action.exRate
+        
     case FETCH_RATE_SUCCESS:
-      return {
-        exRate: action.exRate
-      }
+      return action.exRate
+      
     default:
         return state  
   }

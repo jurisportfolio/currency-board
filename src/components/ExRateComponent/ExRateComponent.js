@@ -21,8 +21,8 @@ const StyledExRateComponent = styled.div`
   border-bottom: solid 2px white;
 
   width: 100%;
-  padding: 5px 10px;
-  margin-bottom: 10px;
+  padding: 5px 0 15px 0;
+  margin-bottom: 5px;
   ${childrenStyle}
 `
 

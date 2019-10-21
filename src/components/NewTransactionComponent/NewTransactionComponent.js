@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 
 import { addTransaction } from '../../utilities/actions';
+import uiKey from '../../utilities/uuidGenerator';
 
 const childrenStyle = css`
 * {
@@ -11,6 +12,10 @@ const childrenStyle = css`
 `
 
 const StyledNewTransactionComponent = styled.div`
+  border-bottom: solid 2px white;
+  width: 100%;
+  padding: 5px 0 15px 0;
+  margin-bottom: 5px;
   ${childrenStyle}
 `
 
@@ -35,11 +40,15 @@ class NewTransactionComponent extends React.Component {
 
   onSubmitTransaction = event => {
     event.preventDefault();
+    const transactionUID = uiKey();
+    console.log('transactionUID: ', transactionUID);
+
     const calculatedAmountPLN = parseFloat(event.target.newTransactionAmountEUR.value) * this.props.exRate;
     const transaction = {
+      uid:        transactionUID,
       name:       event.target.newTransactionName.value,
       amountEUR:  event.target.newTransactionAmountEUR.value,
-      amountPLN:  calculatedAmountPLN.toFixed(4)
+      amountPLN:  calculatedAmountPLN.toFixed(2)
 
     }
     console.log("transaction: ", transaction);
@@ -75,7 +84,7 @@ class NewTransactionComponent extends React.Component {
 const propsForNewTransaction = state => {
   return(
     {
-      exRate: state.exRate.exRate
+      exRate: state.exRate
     }
   )
 }

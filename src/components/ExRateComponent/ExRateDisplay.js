@@ -11,7 +11,7 @@ const ExRateDisplay = ({ exRate }) => (
 
 const propsMapForExRateDisplay = state => {
   return {
-    exRate: state.exRate.exRate
+    exRate: state.exRate
   }
 };
 

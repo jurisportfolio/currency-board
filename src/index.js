@@ -10,10 +10,15 @@ import thunk from 'redux-thunk';
 
 import { fetchRate } from './utilities/fetchRate';
 
+import uiKey from './utilities/uuidGenerator';
+
+const transactionUID = uiKey();
+const initialTransactions = [{id: transactionUID, name: "from createStore", amountPLN: "666", amountEUR: "777"}]
+
 
 const preloadedState = {
   exRate: "1.0000",
-  transactions: [{name: "second", amountPLN: "6", amountEUR: "7"}]
+  transactions: initialTransactions
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
