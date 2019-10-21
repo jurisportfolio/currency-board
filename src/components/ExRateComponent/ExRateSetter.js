@@ -36,7 +36,7 @@ const ExRateSetter = ({ exRate, setRate }) => {
 const propsForExRateSetter = state => {
   return(
     {
-      exRate: state.exRateReducer.exRate
+      exRate: state.exRate.exRate
     }
   )
 }

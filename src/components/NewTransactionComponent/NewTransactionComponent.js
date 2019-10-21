@@ -76,7 +76,7 @@ class NewTransactionComponent extends React.Component {
 const propsForNewTransaction = state => {
   return(
     {
-      exRate: state.exRateReducer.exRate
+      exRate: state.exRate.exRate
     }
   )
 }

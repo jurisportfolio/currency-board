@@ -10,9 +10,16 @@ import thunk from 'redux-thunk';
 
 import { fetchRate } from './utilities/fetchRate';
 
+
+const preloadedState = {
+  exRate: "1.0000",
+  transactions: [{transactionName: "second", transactionAmountPLN: "6", transactionAmountEUR: "7"}]
+}
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   cantorApp,
+  preloadedState,
   composeEnhancers(applyMiddleware(thunk))
 );
 

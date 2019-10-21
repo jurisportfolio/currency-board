@@ -2,13 +2,15 @@ import { combineReducers } from 'redux';
 import { SET_RATE, FETCH_RATE_SUCCESS } from './actions';
 import { ADD_TRANSACTION } from './actions';
 
-const initialState = {
-  exRate: "0.0000",
+const initialExRate = "0.0000";
+
+const initialTransactions = {
+  
   transactions: [{transactionName: "first", transactionAmountPLN: "666", transactionAmountEUR: "777"}]
   
 }
 
-function exRateReducer(state = initialState, action) {
+function exRate(state = initialExRate, action) {
   switch (action.type) {
     case SET_RATE: 
       return {
@@ -23,7 +25,7 @@ function exRateReducer(state = initialState, action) {
   }
 }
 
-function transactionsReducer(state = initialState, action) {
+function transactionsReducer(state = initialTransactions, action) {
   switch (action.type) {
     case ADD_TRANSACTION:
       console.log(action);
@@ -34,7 +36,7 @@ function transactionsReducer(state = initialState, action) {
 }
 
 const cantorApp = combineReducers({
-    exRateReducer,
+    exRate,
     transactionsReducer
 })
 
