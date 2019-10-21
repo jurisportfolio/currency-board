@@ -4,11 +4,7 @@ import { ADD_TRANSACTION } from './actions';
 
 const initialExRate = "0.0000";
 
-const initialTransactions = {
-  
-  transactions: [{transactionName: "first", transactionAmountPLN: "666", transactionAmountEUR: "777"}]
-  
-}
+const initialTransactions = [{name: "first", amountPLN: "666", amountEUR: "777"}]
 
 function exRate(state = initialExRate, action) {
   switch (action.type) {
@@ -25,11 +21,12 @@ function exRate(state = initialExRate, action) {
   }
 }
 
-function transactionsReducer(state = initialTransactions, action) {
+function transactions(state = initialTransactions, action) {
   switch (action.type) {
     case ADD_TRANSACTION:
-      console.log(action);
-      return state
+      console.log("action: ", action);
+
+      return [...state, action.transaction]
     default:
       return state
   }
@@ -37,7 +34,7 @@ function transactionsReducer(state = initialTransactions, action) {
 
 const cantorApp = combineReducers({
     exRate,
-    transactionsReducer
+    transactions
 })
 
 export default cantorApp;

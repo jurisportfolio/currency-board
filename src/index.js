@@ -13,7 +13,7 @@ import { fetchRate } from './utilities/fetchRate';
 
 const preloadedState = {
   exRate: "1.0000",
-  transactions: [{transactionName: "second", transactionAmountPLN: "6", transactionAmountEUR: "7"}]
+  transactions: [{name: "second", amountPLN: "6", amountEUR: "7"}]
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

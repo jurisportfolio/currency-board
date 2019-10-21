@@ -36,14 +36,13 @@ class NewTransactionComponent extends React.Component {
   onSubmitTransaction = event => {
     event.preventDefault();
     const calculatedAmountPLN = parseFloat(event.target.newTransactionAmountEUR.value) * this.props.exRate;
-    console.log('this.props.exRate: ', this.props.exRate);
     const transaction = {
       name:       event.target.newTransactionName.value,
       amountEUR:  event.target.newTransactionAmountEUR.value,
       amountPLN:  calculatedAmountPLN.toFixed(4)
 
     }
-    console.log(transaction);
+    console.log("transaction: ", transaction);
     this.props.addTransaction(transaction)
   }
 
