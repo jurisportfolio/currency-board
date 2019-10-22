@@ -1,15 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { removeTransaction } from '../../utilities/actions';
 
-const TransactionsDisplayComponent = ({ transactionsList }) => {
+const TransactionsDisplayComponent = ({ transactionsList, removeTransaction }) => {
+  console.log('removeTransaction: ', removeTransaction);
+  
   return(
     <ul>
       {transactionsList.map(
-        ({ id, name, amountPLN, amountEUR })=> 
-          <li key={id}>
+        ({ uid, name, amountPLN, amountEUR })=> {
+          console.log("uid: ",uid);
+          return(
+          <li key={uid}>
             <label>Nazwa: {name}</label><br/>
             <label>{amountEUR} Euro = {amountPLN} Zł</label>
-          </li>
+            <button onClick={(id)=>removeTransaction(uid)} >-</button>
+          </li>)}
       )}
     </ul>
   )
@@ -21,4 +27,6 @@ const propsForTransactionsDisplay = state => {
   }
 }
 
-export default connect(propsForTransactionsDisplay)(TransactionsDisplayComponent)
+const dispatchForTransactionsDisplay = { removeTransaction };
+
+export default connect(propsForTransactionsDisplay, dispatchForTransactionsDisplay)(TransactionsDisplayComponent)

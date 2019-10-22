@@ -12,6 +12,11 @@ export const addTransaction = transaction => ({
   transaction
 })
 
+export const removeTransaction = uid => ({
+  type: REMOVE_TRANSACTION,
+  uid
+})
+
 export const setRate = exRate => ({
   type: SET_RATE,
   exRate
