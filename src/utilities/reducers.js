@@ -33,12 +33,12 @@ function exRate(state = initialExRate, action) {
 function transactions(state = initialTransactions, action) {
 	switch (action.type) {
 		case ADD_TRANSACTION:
-			console.log("action: ", action);
-
 			return [...state, action.transaction];
 
 		case REMOVE_TRANSACTION:
-			const newState = removeElementFromList(state, action.uid);
+			const newState = state.filter(transaction =>
+				transaction.uid !== action.uid ? transaction : null
+			);
 			return newState;
 		default:
 			return state;
