@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/currency-board/static/css/main.a38e0a2a.chunk.css",
+    "main.js": "/currency-board/static/js/main.3793c318.chunk.js",
+    "main.js.map": "/currency-board/static/js/main.3793c318.chunk.js.map",
+    "runtime-main.js": "/currency-board/static/js/runtime-main.45764890.js",
+    "runtime-main.js.map": "/currency-board/static/js/runtime-main.45764890.js.map",
+    "static/js/2.e2e98508.chunk.js": "/currency-board/static/js/2.e2e98508.chunk.js",
+    "static/js/2.e2e98508.chunk.js.map": "/currency-board/static/js/2.e2e98508.chunk.js.map",
+    "index.html": "/currency-board/index.html",
+    "precache-manifest.bbc413616e64f9529c62ebd292035398.js": "/currency-board/precache-manifest.bbc413616e64f9529c62ebd292035398.js",
+    "service-worker.js": "/currency-board/service-worker.js",
+    "static/css/main.a38e0a2a.chunk.css.map": "/currency-board/static/css/main.a38e0a2a.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45764890.js",
+    "static/js/2.e2e98508.chunk.js",
+    "static/css/main.a38e0a2a.chunk.css",
+    "static/js/main.3793c318.chunk.js"
+  ]
+}
