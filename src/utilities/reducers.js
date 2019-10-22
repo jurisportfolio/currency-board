@@ -35,13 +35,16 @@ function transactions(state = initialTransactions, action) {
 			return [...state, action.transaction];
 
 		case REMOVE_TRANSACTION:
-			const newState = state.filter(transaction =>
+				return state.filter(transaction =>
 				transaction.uid !== action.uid ? transaction : null
 			);
-			return newState;
-		case SET_NEW_AMOUNT:
-			console.log("action: ", action);
-			return state;
+		case SET_RATE:
+			return state.map(
+				(transaction => {
+					const newAmountPLN = transaction.amountPLN * action.exRate;
+					return {...transaction, amountPLN: newAmountPLN.toFixed(2)}
+				})
+			);
 		default:
 			return state;
 	}

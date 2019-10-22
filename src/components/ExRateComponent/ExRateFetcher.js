@@ -1,36 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRate, setNewAmount } from '../../utilities/fetchRate';
-import { calcPLNinState } from '../../utilities/calculations';
+import { fetchRate } from '../../utilities/fetchRate';
+// import {  } from '../../utilities/actions';
 
 class ExRateFetcher extends React.Component {
-  
-  handelOnClick = () => {
-    this.props.dispatch(fetchRate());
-    this.props.setNewAmount(this.props.)
-  }
+	handelOnClick = () => {
+		this.props.dispatch(fetchRate());
+	};
 
-  render(){
-    return(
-      <div>
-        <label>Aktualny kurs NBP</label>
-        <input 
-          type='button' 
-          value='Pobierz'
-          onClick={this.handelOnClick} />
-      </div>
-    )}
+	render() {
+		return (
+			<div>
+				<label>Aktualny kurs NBP</label>
+				<input type="button" value="Pobierz" onClick={this.handelOnClick} />
+			</div>
+		);
+	}
 }
 
 const propsForExRateFetcher = state => {
-  return {
-    transactions: state.transactions,
-    exRate: state.exRate
-  }
-  
-}
+	return {
+		transactions: state.transactions,
+		exRate: state.exRate
+	};
+};
 
-const dispatchForExRateFetcher =  setNewAmount();
+// const dispatchForExRateFetcher = { setNewAmountPLN };
 
-export default connect(propsForExRateFetcher, dispatchForExRateFetcher)(ExRateFetcher);
+export default connect(
+	propsForExRateFetcher
+	// , dispatchForExRateFetcher
+  )(ExRateFetcher);

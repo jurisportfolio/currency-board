@@ -1,48 +1,47 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { setRate } from '../../utilities/actions';
+import { setRate } from "../../utilities/actions";
 
-const ExRateSetter = ({ exRate, setRate }) => {
+const ExRateSetter = ({ exRate, setRate, setNewAmountPLN }) => {
+	let rateInput = React.createRef();
 
-  let rateInput = React.createRef();
-  
-  const handelSubmit = event => {
-    event.preventDefault();
-    const newRate = parseFloat(rateInput.current.value).toFixed(4);
-    rateInput.current.value = newRate;
-    setRate(newRate);
-  }
+	const handelSubmit = event => {
+		event.preventDefault();
+		const newRate = parseFloat(rateInput.current.value).toFixed(4);
+		rateInput.current.value = newRate;
+		setRate(newRate);
+		// setNewAmountPLN(newRate);
+	};
 
-  return(
-    <div>
-      <form onSubmit={handelSubmit} > 
-        <label>
-          Rate:
-          <input 
-            type="number" 
-            name="rate" 
-            step="0.0001"
-            defaultValue={exRate} 
-            ref={rateInput} 
-          />
-        </label>
-        <input type="submit" value="Set rate" />
-      </form>
-    </div>
-  )
-}
+	return (
+		<div>
+			<form onSubmit={handelSubmit}>
+				<label>
+					Rate:
+					<input
+						type="number"
+						name="rate"
+						step="0.0001"
+						defaultValue={exRate}
+						ref={rateInput}
+					/>
+				</label>
+				<input type="submit" value="Set rate" />
+			</form>
+		</div>
+	);
+};
 
 const propsForExRateSetter = state => {
-  return(
-    {
-      exRate: state.exRate.exRate
-    }
-  )
-}
+	return {
+		exRate: state.exRate.exRate
+	};
+};
 
 const dispatchForExRateSetter = { setRate };
 
 export default connect(
-                propsForExRateSetter, 
-                dispatchForExRateSetter)(ExRateSetter);
+	propsForExRateSetter,
+	dispatchForExRateSetter
+)(ExRateSetter);
