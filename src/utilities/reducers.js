@@ -41,8 +41,7 @@ function transactions(state = initialTransactions, action) {
 		case SET_RATE:
 			return state.map(
 				(transaction => {
-					const newAmountPLN = transaction.amountPLN * action.exRate;
-					return {...transaction, amountPLN: newAmountPLN.toFixed(2)}
+					return {...transaction, amountPLN: transaction.amountEUR * action.exRate}
 				})
 			);
 		default:

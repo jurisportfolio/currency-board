@@ -17,12 +17,9 @@ const TransactionsDisplayComponent = ({
 	transactionsList,
 	removeTransaction
 }) => {
-	console.log("removeTransaction: ", removeTransaction);
-
 	return (
 		<StyledTransactionsDisplayComponent>
 			{transactionsList.map(({ uid, name, amountPLN, amountEUR }) => {
-				console.log("uid: ", uid);
 				return (
 					<li key={uid}>
 						<label>Nazwa: {name}</label>

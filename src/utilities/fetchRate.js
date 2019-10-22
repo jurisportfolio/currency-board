@@ -13,7 +13,6 @@ export const fetchRate = () => {
         .then(res => res.json())
         .then(json => {
           if (json.code === "EUR") {
-            console.log("RATE:", json.rates[0].mid);
             dispatch(setRate(json.rates[0].mid))
           } else {
             dispatch(fetchRateCurrencyError(json.code))

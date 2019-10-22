@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ExRateComponent from './ExRateComponent/ExRateComponent';
 import NewTransactionComponent from './NewTransactionComponent/NewTransactionComponent';
 import TransactionsDisplayComponent from './TransactionsDisplayComponent/TransactionsDisplayComponent';
+import TransSumComponent from './TransSumComponent/TransSumComponent'
 
 const StyledDashboard = styled.div`
   
@@ -18,6 +19,7 @@ class DashboardComponent extends React.Component {
         <ExRateComponent />
         <NewTransactionComponent />
         <TransactionsDisplayComponent />
+        <TransSumComponent />
       </StyledDashboard>
     )
   }

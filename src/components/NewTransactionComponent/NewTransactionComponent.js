@@ -41,8 +41,6 @@ class NewTransactionComponent extends React.Component {
   onSubmitTransaction = event => {
     event.preventDefault();
     const transactionUID = uiKey();
-    console.log('transactionUID: ', transactionUID);
-
     const calculatedAmountPLN = parseFloat(event.target.newTransactionAmountEUR.value) * this.props.exRate;
     const transaction = {
       uid:        transactionUID,
@@ -51,7 +49,6 @@ class NewTransactionComponent extends React.Component {
       amountPLN:  calculatedAmountPLN.toFixed(2)
 
     }
-    console.log("transaction: ", transaction);
     this.props.addTransaction(transaction)
   }
 
