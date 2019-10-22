@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 
 import { setRate } from "../../utilities/actions";
 
-const ExRateSetter = ({ exRate, setRate, setNewAmountPLN }) => {
+const ExRateSetter = ({ exRate, setRate }) => {
 	let rateInput = React.createRef();
 
 	const handelSubmit = event => {
 		event.preventDefault();
-		const newRate = parseFloat(rateInput.current.value).toFixed(4);
-		rateInput.current.value = newRate;
-		setRate(newRate);
-		// setNewAmountPLN(newRate);
+		setRate(parseFloat(rateInput.current.value));
 	};
 
 	return (
@@ -23,6 +20,9 @@ const ExRateSetter = ({ exRate, setRate, setNewAmountPLN }) => {
 						type="number"
 						name="rate"
 						step="0.0001"
+						max="999999"
+						min="0.0001"
+
 						defaultValue={exRate}
 						ref={rateInput}
 					/>
@@ -35,7 +35,7 @@ const ExRateSetter = ({ exRate, setRate, setNewAmountPLN }) => {
 
 const propsForExRateSetter = state => {
 	return {
-		exRate: state.exRate.exRate
+		exRate: state.exRate
 	};
 };
 

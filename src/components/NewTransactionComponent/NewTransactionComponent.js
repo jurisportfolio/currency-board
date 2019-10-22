@@ -23,7 +23,7 @@ class NewTransactionComponent extends React.Component {
 
   state = {
     newTransactionName: "New Transaction", 
-    newTransactionAmountEUR: "450"
+    newTransactionAmountEUR: "450.00"
   }
 
   onNewTransactionNameChange = event => {
@@ -34,19 +34,21 @@ class NewTransactionComponent extends React.Component {
 
   onNewTransactionAmountChange = event => {
     this.setState({
-      newTransactionAmountEUR: event.target.value
+      newTransactionAmountEUR: parseFloat(event.target.value)
     })
   }
 
   onSubmitTransaction = event => {
     event.preventDefault();
     const transactionUID = uiKey();
-    const calculatedAmountPLN = parseFloat(event.target.newTransactionAmountEUR.value) * this.props.exRate;
+    const newTransactionName = this.state.newTransactionName;
+    const newTransactionAmountEUR = parseFloat(this.state.newTransactionAmountEUR);
+    const calculatedAmountPLN = newTransactionAmountEUR * this.props.exRate;
     const transaction = {
       uid:        transactionUID,
-      name:       event.target.newTransactionName.value,
-      amountEUR:  event.target.newTransactionAmountEUR.value,
-      amountPLN:  calculatedAmountPLN.toFixed(2)
+      name:       newTransactionName,
+      amountEUR:  newTransactionAmountEUR,
+      amountPLN:  calculatedAmountPLN
 
     }
     this.props.addTransaction(transaction)
@@ -54,11 +56,13 @@ class NewTransactionComponent extends React.Component {
 
   render(){
     const { newTransactionAmountEUR, newTransactionName } = this.state;
+    const displayedName = newTransactionName ? newTransactionName : "Bez nazwy";
+    const displayedAmountEUR = newTransactionAmountEUR ? newTransactionAmountEUR : "0.00";
     return(
       <StyledNewTransactionComponent>
         <div>
-          <label>{newTransactionName}</label>
-          <label>{newTransactionAmountEUR}</label>
+          <label>{displayedName}</label>
+          <label>{displayedAmountEUR}</label>
         </div>
         <div>
           <form onSubmit={this.onSubmitTransaction}>
@@ -69,6 +73,9 @@ class NewTransactionComponent extends React.Component {
                    onChange={this.onNewTransactionNameChange} />
             <label>Kwota</label>
             <input type="number" 
+                   step="0.01"
+                   max="999999"
+                   min="0.01"
                    name="newTransactionAmountEUR" 
                    value={newTransactionAmountEUR} 
                    onChange={this.onNewTransactionAmountChange} />

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchRate } from '../../utilities/fetchRate';
-// import {  } from '../../utilities/actions';
+
 
 class ExRateFetcher extends React.Component {
 	handelOnClick = () => {

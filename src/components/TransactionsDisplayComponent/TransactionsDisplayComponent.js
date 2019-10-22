@@ -20,6 +20,8 @@ const TransactionsDisplayComponent = ({
 	return (
 		<StyledTransactionsDisplayComponent>
 			{transactionsList.map(({ uid, name, amountPLN, amountEUR }) => {
+				amountPLN = amountPLN.toFixed(2).toString();
+				amountEUR = amountEUR.toFixed(2).toString();
 				return (
 					<li key={uid}>
 						<label>Nazwa: {name}</label>

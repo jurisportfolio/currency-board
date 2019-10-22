@@ -13,7 +13,7 @@ import { fetchRate } from './utilities/fetchRate';
 import uiKey from './utilities/uuidGenerator';
 
 const transactionUID = uiKey();
-const initialTransactions = [{uid: transactionUID, name: "from createStore", amountPLN: "666", amountEUR: "777"}]
+const initialTransactions = [{uid: transactionUID, name: "from createStore", amountPLN: 666, amountEUR: 777}]
 
 
 const preloadedState = {
