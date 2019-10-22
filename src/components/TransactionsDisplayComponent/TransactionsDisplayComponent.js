@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { removeTransaction } from "../../utilities/actions";
 
 const StyledTransactionsDisplayComponent = styled.ul`
-	border-bottom: solid 2px white;
+	
 	width: 100%;
 	padding: 5px 0 15px 0;
 	margin-bottom: 5px;

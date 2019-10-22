@@ -5,9 +5,17 @@ import { connect } from 'react-redux';
 import ExRateComponent from './ExRateComponent/ExRateComponent';
 import NewTransactionComponent from './NewTransactionComponent/NewTransactionComponent';
 import TransactionsDisplayComponent from './TransactionsDisplayComponent/TransactionsDisplayComponent';
+import BiggestTransComponent from './TransactionsDisplayComponent/BiggestTransDisplayComponent';
 import TransSumComponent from './TransSumComponent/TransSumComponent'
 
 const StyledDashboard = styled.div`
+  
+`
+
+const StyledTransactionPanel = styled.div`
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 2px white;
   
 `
 
@@ -18,7 +26,12 @@ class DashboardComponent extends React.Component {
       <StyledDashboard>
         <ExRateComponent />
         <NewTransactionComponent />
-        <TransactionsDisplayComponent />
+        
+        <StyledTransactionPanel>
+          <TransactionsDisplayComponent />
+          <BiggestTransComponent />
+        </StyledTransactionPanel>
+
         <TransSumComponent />
       </StyledDashboard>
     )
