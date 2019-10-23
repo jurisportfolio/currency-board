@@ -1,11 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import { currencyFormat } from "../../utilities/currencyFormat";
 
+const children = css`
+	h5 {
+		margin-block-start: 0.8em;
+		margin-block-end: 0.8em;
+	}
+`;
+
 const StyledBiggestTrans = styled.div`
 	color: red;
+	margin: 10px 0;
+	padding: 0 5px;
+	${children}
 `;
 
 const BiggestTransComponent = ({ biggestTransaction }) => {
@@ -16,7 +26,7 @@ const BiggestTransComponent = ({ biggestTransaction }) => {
 	// amountEUR = "€ " + amountEUR.toFixed(2).toString();
 	return (
 		<StyledBiggestTrans>
-			<h4>Największa</h4>
+			<h5>Największa</h5>
 			<label>{name}</label>
 			<br />
 			<label>{amountPLN}</label>

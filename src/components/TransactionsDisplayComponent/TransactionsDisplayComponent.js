@@ -1,16 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { removeTransaction } from "../../utilities/actions";
 import { currencyFormat } from "../../utilities/currencyFormat";
 
+const ulChildren = css`
+	li {
+		padding: 10px 0;
+	}
+`;
+
 const StyledTransactionsDisplayComponent = styled.ul`
 	width: 100%;
 	padding: 5px 0 15px 0;
-	margin-bottom: 5px;
+	margin-bottom: 5px 0;
+	margin-block-start: 0;
 
 	list-style: none;
+
+	${ulChildren}
 `;
 
 const TransactionsDisplayComponent = ({
