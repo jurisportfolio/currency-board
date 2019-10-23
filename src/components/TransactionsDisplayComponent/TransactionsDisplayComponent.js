@@ -9,6 +9,16 @@ const ulChildren = css`
 	li {
 		padding: 10px 0;
 	}
+
+	li > label {
+		margin: 0 10px;
+	}
+
+	li > button {
+		font-size: 16px;
+		background-color: red;
+		color: white;
+	}
 `;
 
 const StyledTransactionsDisplayComponent = styled.ul`
@@ -40,7 +50,7 @@ const TransactionsDisplayComponent = ({
 						<label>
 							{amountEUR} = {amountPLN}
 						</label>
-						<button onClick={id => removeTransaction(uid)}>-</button>
+						<button onClick={id => removeTransaction(uid)}>wykasuj</button>
 					</li>
 				);
 			})}

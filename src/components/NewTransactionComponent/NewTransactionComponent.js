@@ -10,6 +10,11 @@ const childrenStyle = css`
 	* {
 		margin: 5px;
 	}
+	/* .submit-button {
+		background-color: green;
+		color: white;
+		font-size: 16px;
+	} */
 `;
 
 const StyledNewTransactionComponent = styled.div`
@@ -77,6 +82,7 @@ class NewTransactionComponent extends React.Component {
 							value={newTransactionName}
 							onChange={this.onNewTransactionNameChange}
 						/>
+						<br />
 						<label>Kwota</label>
 						<input
 							type="number"
@@ -87,7 +93,7 @@ class NewTransactionComponent extends React.Component {
 							value={newTransactionAmountEUR}
 							onChange={this.onNewTransactionAmountChange}
 						/>
-						<input type="submit" value="+" />
+						<input className="submit-button" type="submit" value="dodaj" />
 					</form>
 				</div>
 			</StyledNewTransactionComponent>

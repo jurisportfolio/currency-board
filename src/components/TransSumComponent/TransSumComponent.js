@@ -24,7 +24,8 @@ const TransSumComponent = ({ sumEUR, sumPLN }) => {
 	sumPLN = currencyFormat(sumPLN, "PLN");
 	return (
 		<StyledTransSumComponent>
-			<label>Suma operacji: </label>
+			<label>Suma: </label>
+			<br />
 			<label>{sumEUR}</label> <label>{sumPLN}</label>
 		</StyledTransSumComponent>
 	);

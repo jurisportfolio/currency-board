@@ -22,12 +22,11 @@ const ExRateSetter = ({ exRate, setRate }) => {
 						step="0.0001"
 						max="999999"
 						min="0.0001"
-
 						defaultValue={exRate}
 						ref={rateInput}
 					/>
 				</label>
-				<input type="submit" value="Set rate" />
+				<input className="submit-button" type="submit" value="Set rate" />
 			</form>
 		</div>
 	);
