@@ -1,7 +1,8 @@
-import React from 'react';
-import styled, {css} from 'styled-components';
-import { connect } from 'react-redux';
-import { createSelector } from 'reselect'
+import React from "react";
+import styled, { css } from "styled-components";
+import { connect } from "react-redux";
+import { createSelector } from "reselect";
+import { currencyFormat } from "../../utilities/currencyFormat";
 
 const childrenStyle = css`
 	label {
@@ -13,46 +14,55 @@ const childrenStyle = css`
 `;
 
 const StyledTransSumComponent = styled.div`
-  display: flex;
+	display: flex;
 	flex-direction: row;
 	${childrenStyle}
 `;
 
 const TransSumComponent = ({ sumEUR, sumPLN }) => {
-  return(
-    <StyledTransSumComponent>
-      <label>Suma operacji: </label>
-      <label>{sumEUR} Euro</label>
-      <label>{sumPLN} Zł</label>
-    </StyledTransSumComponent>
-  )
-}
+	sumEUR = currencyFormat(sumEUR, "EUR");
+	sumPLN = currencyFormat(sumPLN, "PLN");
+	return (
+		<StyledTransSumComponent>
+			<label>Suma operacji: </label>
+			<label>{sumEUR}</label> <label>{sumPLN}</label>
+		</StyledTransSumComponent>
+	);
+};
 
 const getTransactions = state => state.transactions;
 
 const getSumEUR = createSelector(
-  [ getTransactions ],
-  (transactions) => transactions.reduce(
-    (sum, transaction) => {
-      let newSum = parseFloat(sum) + parseFloat(transaction.amountEUR);
-      return newSum.toFixed(2)
-    }, 0)
-)
+	[getTransactions],
+	transactions =>
+		transactions.reduce(
+			(sum, transaction) => sum + transaction.amountEUR,
+			// {
+			// 	let newSum = parseFloat(sum) + parseFloat(transaction.amountEUR);
+			// 	return newSum.toFixed(2);
+			// }
+			0
+		)
+);
 
 const getSumPLN = createSelector(
-  [ getTransactions ],
-  (transactions) => transactions.reduce(
-    (sum, transaction) => {
-      let newSum = parseFloat(sum) + parseFloat(transaction.amountPLN);
-      return newSum.toFixed(2)
-    }, 0)
-)
+	[getTransactions],
+	transactions =>
+		transactions.reduce(
+			(sum, transaction) => sum + transaction.amountPLN,
+			// {
+			// 	let newSum = parseFloat(sum) + parseFloat(transaction.amountPLN);
+			// 	return newSum.toFixed(2);
+			// }
+			0
+		)
+);
 
 const propsToTransSum = state => {
-  return {
-    sumEUR: getSumEUR(state),
-    sumPLN: getSumPLN(state)
-  }
-}
+	return {
+		sumEUR: getSumEUR(state),
+		sumPLN: getSumPLN(state)
+	};
+};
 
-export default connect(propsToTransSum)(TransSumComponent)
+export default connect(propsToTransSum)(TransSumComponent);

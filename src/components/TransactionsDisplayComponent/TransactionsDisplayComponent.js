@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { removeTransaction } from "../../utilities/actions";
+import { currencyFormat } from "../../utilities/currencyFormat";
 
 const StyledTransactionsDisplayComponent = styled.ul`
-	
 	width: 100%;
 	padding: 5px 0 15px 0;
 	margin-bottom: 5px;
@@ -20,14 +20,16 @@ const TransactionsDisplayComponent = ({
 	return (
 		<StyledTransactionsDisplayComponent>
 			{transactionsList.map(({ uid, name, amountPLN, amountEUR }) => {
-				amountPLN = amountPLN.toFixed(2).toString();
-				amountEUR = amountEUR.toFixed(2).toString();
+				amountPLN = currencyFormat(amountPLN, "PLN");
+				amountEUR = currencyFormat(amountEUR, "EUR");
+				// amountPLN = amountPLN.toFixed(2).toString();
+				// amountEUR = amountEUR.toFixed(2).toString();
 				return (
 					<li key={uid}>
 						<label>Nazwa: {name}</label>
 						<br />
 						<label>
-							{amountEUR} Euro = {amountPLN} Zł
+							{amountEUR} = {amountPLN}
 						</label>
 						<button onClick={id => removeTransaction(uid)}>-</button>
 					</li>
