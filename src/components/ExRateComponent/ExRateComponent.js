@@ -17,6 +17,7 @@ const childrenStyle = css`
 const StyledSetter = styled.div`
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
 	${childrenStyle}
 `;
 

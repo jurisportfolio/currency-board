@@ -13,7 +13,7 @@ class ExRateFetcher extends React.Component {
 		return (
 			<div>
 				<label>Aktualny kurs NBP</label>
-				<input type="button" value="Pobierz" onClick={this.handelOnClick} />
+				<input className="submit-button" type="button" value="Pobierz" onClick={this.handelOnClick} />
 			</div>
 		);
 	}

@@ -18,3 +18,10 @@
 .App main {
   width: 100%
 }
+
+.submit-button {
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  margin: 5px 10px;
+}
